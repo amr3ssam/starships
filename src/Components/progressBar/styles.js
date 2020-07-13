@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-background-color:  ${(props) => props.disabled !== true ? "#FFFFFF" : "#808080	"};
+background-color:  ${(props) => props.disabled !== true ? "#FFFFFF" : "#a6a6a6 	"};
   margin: 0px 14px;
   height: 20px;
   display: flex; 
