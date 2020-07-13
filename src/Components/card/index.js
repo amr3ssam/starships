@@ -1,6 +1,6 @@
 import React from 'react'
 import { Wrapper } from './styles'
-import CardRow from '../CardRow'
+import CardRow from '../cardRow'
 
 export default function FeatureCard({
   starshipObject
