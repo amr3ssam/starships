@@ -1,6 +1,6 @@
 # Starships
 
-Starships is a one page site to get star war movie starships List .
+Starships is a one page site to get star war movie starships List.<br />
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) and [styled-components] .
 
 ## Installation
