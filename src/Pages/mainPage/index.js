@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../../Components/card'
 import { Wrapper, ContentWrapper, Line, FooterWrapper, PreviousButton,NextButton} from './styles'
+import Card from '../../Components/card'
 
 export default class mainPage extends React.Component {
     state = {
@@ -19,7 +19,7 @@ export default class mainPage extends React.Component {
         fetch(url)
             .then(res => res.json())
             .then((data) => {
-                console.log("data", data)
+                
                 this.setState({
                     tableData: data.results,
                     totalCount: data.count,
@@ -28,26 +28,31 @@ export default class mainPage extends React.Component {
                     buttonDisabled: false
                 })
             })
-            .catch(console.log)
     }
+
+    renderCard = () => {
+        const { tableData } = this.state;
+
+        if (tableData && tableData.length > 0) {
+            return tableData.map((item) => {
+                        return <Card starshipObject={item} />
+                    })
+        } else {
+            return null;
+        }              
+    }
+
     render() {
-        const { tableData, buttonDisabled, previous, next } = this.state;
+        const {buttonDisabled, previous, next } = this.state;
         return (
             <Wrapper>
                 <ContentWrapper>
-                    {
-                        tableData !== undefined && tableData !== null && tableData.length > 0 ?
-                            tableData.map(function (item, i) {
-                                return <Card starshipObject={item} />
-                            })
-                            : null
-                    }
+                    {this.renderCard()}
                 </ContentWrapper>
                 <Line />
                 <FooterWrapper>
                     <PreviousButton  disabled={buttonDisabled || previous === null} onClick={() => this.fetchPage(previous)}>previous</PreviousButton>
                     <NextButton  disabled={buttonDisabled || next === null} onClick={() => this.fetchPage(next)} >next</NextButton>
-
                 </FooterWrapper>
             </Wrapper>
         )
