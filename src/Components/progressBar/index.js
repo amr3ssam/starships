@@ -1,7 +1,10 @@
 import React from 'react'
 import { Wrapper, ContentWrapper} from './styles'
 
-export default function CardRow({
+// function to create the progress bar with two colours
+// white background colour, blue one for the progress and grey if unknown
+
+export default function progressBarComponent({
   progress
 }) {
     return (

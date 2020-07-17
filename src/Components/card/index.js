@@ -2,7 +2,12 @@ import React from 'react'
 import { Wrapper } from './styles'
 import CardRow from '../cardRow'
 
-export default function FeatureCard({
+// function to create the main card component taken property of the starobject 
+// then map the objec properties to row of the card passing row name and content
+// in name property name has to be always capital in the beginning
+// in crew and passengers if value = 0 then show None
+
+export default function cardComponent({
   starshipObject
 }) {
     return (

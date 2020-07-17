@@ -2,6 +2,8 @@ import React from 'react';
 import { Wrapper, ContentWrapper, Line, FooterWrapper, PreviousButton,NextButton} from './styles'
 import Card from '../../Components/card'
 
+//Main page component to show the one page site 
+
 export default class mainPage extends React.Component {
     state = {
         tableData: [],
@@ -10,12 +12,21 @@ export default class mainPage extends React.Component {
         next: 1
     }
     componentDidMount() {
+        // to call  fetch the data funtion from API as soon as component renders
         this.fetchPage("https://swapi.py4e.com/api/starships/")
     }
+
+    // method to retreive the data from the Api 
+
     fetchPage = (url) => {
+
+        // disable the previous and next buttons before fetch data from API
+
         this.setState({
             buttonDisabled: true   
             })
+
+        //fetch call for the API
         fetch(url)
             .then(res => res.json())
             .then((data) => {
@@ -29,6 +40,8 @@ export default class mainPage extends React.Component {
                 })
             })
     }
+    
+    // method to map the data array with card component to render
 
     renderCard = () => {
         const { tableData } = this.state;
